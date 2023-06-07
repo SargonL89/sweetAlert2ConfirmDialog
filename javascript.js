@@ -1,7 +1,6 @@
 // function cargarProductos() {
 //   const tableBody = document.querySelector(".body");
 
-
 // }
 
 // function eliminarElem() {
@@ -27,13 +26,13 @@
 //           reverseButtons: true
 //         })
 //         .then((result) => {
-//         result.isConfirmed ? 
+//         result.isConfirmed ?
 //             (swalWithBootstrapButtons.fire(
 //               "Listo!",
 //               "El elemento ha sido eliminado!",
 //               "success"
 //             )) :
-//         result.dismiss === Swal.DismissReason.cancel 
+//         result.dismiss === Swal.DismissReason.cancel
 //             (swalWithBootstrapButtons.fire(
 //               "Eso estuvo cerca!",
 //               "Tu placa de video imaginaria está a salvo! :)",
@@ -47,70 +46,68 @@
 // cargarProductos();
 // eliminarElem();
 
+// placasDeVideo.forEach((placa, index) => {
+//   const li = document.createElement("li");
+//   li.textContent = placa.id + ' ' + placa.fabricante + ' ' + placa.marca + ' ' + placa.modelo + ' ' + placa.memoria + ' ' + placa.precio;
 
+// function Kreate() {
+//   const tableBody = document.querySelector(".body");
+//   tableBody.innerHTML = "";
 
+//   placasDeVideo.forEach((placa, index) => {
+//     tableBody.innerHTML += `<tr>
+//                 <td>${placa.id}</td>
+//                 <td>${placa.fabricante}</td>
+//                 <td>${placa.marca}</td>
+//                 <td>${placa.modelo}</td>
+//                 <td>${placa.memoria}</td>
+//                 <td>${placa.precio}</td>
+//                 </tr>`;
 
+//     const eliminarButton = document.createElement("button");
+//     eliminarButton.textContent = "Eliminar";
+//     eliminarButton.addEventListener("click", () => {
+//       mostrarConfirmacion(index);
+//     });
 
+//     tableBody.appendChild(eliminarButton);
+//   });
+// }
 
+// function mostrarConfirmacion(index) {
+//   Swal.fire({
+//     title: "Eliminar elemento",
+//     text: "¿Estás seguro de que deseas eliminar este elemento?",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonText: "Sí, eliminar",
+//     cancelButtonText: "Cancelar",
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       eliminarElemento(index);
+//     }
+//   });
+// }
 
-    const lista = document.getElementById("listaElementos");
+// function eliminarElemento(index) {
+//   placasDeVideo.splice(index, 1);
+//   Kreate();
+// }
 
-    // Función para crear la lista de elementos
-    function crearLista() {
-      // Limpiar la lista actual
-      lista.innerHTML = "";
+// Kreate();
 
-      // Recorrer el array de elementos y crear los <li> correspondientes
-      // placasDeVideo.forEach((placa, index) => {
-      //   const li = document.createElement("li");
-      //   li.textContent = placa.id + ' ' + placa.fabricante + ' ' + placa.marca + ' ' + placa.modelo + ' ' + placa.memoria + ' ' + placa.precio;
-      
-        placasDeVideo.forEach((placa, index) => {
-        tableBody.innerHTML += `<tr>
-                <td>${placa.id}</td>
-                <td>${placa.fabricante}</td>
-                <td>${placa.marca}</td>
-                <td>${placa.modelo}</td>
-                <td>${placa.memoria}</td>
-                <td>${placa.precio}</td>
-                <td><button class="eliminar">Eliminar elemento</button></td>
-            </tr>`;
-      });
+const listItems = document.querySelectorAll("#myList button");
 
+function Nuevo() {
+  // Agregar el evento de clic a cada elemento de la lista
+  listItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Eliminar la clase 'selected' de todos los elementos
+      listItems.forEach((item) => item.classList.remove("selected"));
 
-        // Crear el botón de eliminación y agregar un evento de clic
-        const eliminarButton = document.createElement("button");
-        eliminarButton.textContent = "Eliminar";
-        eliminarButton.addEventListener("click", () => {
-          mostrarConfirmacion(index);
-        });
-
-        li.appendChild(eliminarButton);
-        lista.appendChild(li);
-      });
-    }
-
-    // Función para mostrar el mensaje de confirmación antes de eliminar el elemento
-    function mostrarConfirmacion(index) {
-      Swal.fire({
-        title: "Eliminar elemento",
-        text: "¿Estás seguro de que deseas eliminar este elemento?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Sí, eliminar",
-        cancelButtonText: "Cancelar"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          eliminarElemento(index);
-        }
-      });
-    }
-
-    // Función para eliminar el elemento del array
-    function eliminarElemento(index) {
-      placasDeVideo.splice(index, 1);
-      crearLista();
-    }
-
-    // Crear la lista inicial
-    crearLista();
+      // Agregar la clase 'selected' al elemento seleccionado
+      item.classList.add("selected");
+    });
+  });
+}
+Nuevo();

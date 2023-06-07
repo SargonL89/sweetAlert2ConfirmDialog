@@ -7,6 +7,7 @@
     <script defer src="javascript.js"></script>
     <script src="productos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Práctica 11: Librerías</title>
 </head>
 <body>
@@ -14,13 +15,29 @@
 
     <p><strong>Eliminar elementos de un array</strong></p>
     <!-- Confirmación de eliminación: Crea una lista de elementos y añade un botón de eliminación junto a cada uno. Al hacer clic en el botón, muestra un SweetAlert2 con un mensaje de confirmación para asegurarte de que el usuario desea eliminar el elemento seleccionado. -->
-    <ul id="listaElementos"></ul>
+    <!-- <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FABRICANTE</th>
+                <th>MARCA</th>
+                <th>MODELO</th>
+                <th>MEMORIA</th>
+                <th>PRECIO</th>
+            </tr>
+        </thead>
+        <tbody class="body">
+            
+        </tbody>
+    </table> -->
 
-    <!-- Notificaciones de éxito: Después de que el usuario complete una acción exitosa, como enviar un formulario o realizar una compra, utiliza SweetAlert2 para mostrar una notificación de éxito con un mensaje personalizado y un ícono. -->
-
-    <!-- Confirmación de salida: Si el usuario intenta abandonar una página sin guardar cambios, muestra un SweetAlert2 con un mensaje de advertencia y opciones para guardar los cambios, descartarlos o cancelar la acción. -->
-
-    <!-- Mensajes de carga: Cuando se realiza una operación que lleva tiempo, como enviar un formulario o cargar datos desde un servidor, muestra un SweetAlert2 con un mensaje de carga y una animación para indicar al usuario que se está procesando la solicitud. -->
+    <ul id="myList">
+        <button>Elemento 1</button>
+        <button>Elemento 2</button>
+        <button>Elemento 3</button>
+      </ul>
+      
+    <!-- <ul id="listaElementos"></ul> -->
 
 </body>
 </html>
