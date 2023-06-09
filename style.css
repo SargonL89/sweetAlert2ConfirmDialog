@@ -6,3 +6,11 @@
 .selected {
   background-color: rgb(55, 255, 0);
 }
+
+.selected:hover {
+  background-color: rgb(53, 244, 0);
+}
+
+.selected:active {
+  background-color: rgb(62, 255, 9);
+}
