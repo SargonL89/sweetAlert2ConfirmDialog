@@ -50,19 +50,25 @@
 //   const li = document.createElement("li");
 //   li.textContent = placa.id + ' ' + placa.fabricante + ' ' + placa.marca + ' ' + placa.modelo + ' ' + placa.memoria + ' ' + placa.precio;
 
-// function Kreate() {
-//   const tableBody = document.querySelector(".body");
-//   tableBody.innerHTML = "";
+function kreate() {
+  const tableBody = document.querySelector(".tableBody");
+  tableBody.innerHTML = "";
 
-//   placasDeVideo.forEach((placa, index) => {
-//     tableBody.innerHTML += `<tr>
-//                 <td>${placa.id}</td>
-//                 <td>${placa.fabricante}</td>
-//                 <td>${placa.marca}</td>
-//                 <td>${placa.modelo}</td>
-//                 <td>${placa.memoria}</td>
-//                 <td>${placa.precio}</td>
-//                 </tr>`;
+  placasDeVideo.forEach((placa, index) => {
+    tableBody.innerHTML += `<tr class="tr">
+        <td>${placa.id}</td>
+        <td>${placa.fabricante}</td>
+        <td>${placa.marca}</td>
+        <td>${placa.modelo}</td>
+        <td>${placa.memoria}</td>
+        <td>${placa.precio}</td>
+        </tr>`;
+    tableBody.addEventListener("click", () => {
+        placasDeVideo.forEach((placa) => placa.classList.remove("selected"));
+        placa.classList.add("selected");
+    });
+  });
+}
 
 //     const eliminarButton = document.createElement("button");
 //     eliminarButton.textContent = "Eliminar";
@@ -94,7 +100,7 @@
 //   Kreate();
 // }
 
-// Kreate();
+kreate();
 
 const listItems = document.querySelectorAll("#myList button");
 
