@@ -1,4 +1,4 @@
-function kreate() {
+function kreateTable() {
   const tableBody = document.querySelector(".tableBody");
   tableBody.innerHTML = "";
 
@@ -17,12 +17,12 @@ function kreate() {
     row.addEventListener("click", () => {
       selected.forEach(row => row.classList.remove("selected"));
       row.classList.add("selected");
-      kreateNDestroy();
+      sweetAlert();
     });
   });
 }
 
-function kreateNDestroy() {
+function sweetAlert() {
   const eliminate = document.querySelector(".eliminate");
   eliminate.addEventListener("click", () => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -65,7 +65,7 @@ function eliminar() {
   const selected = document.querySelector(".selected");
   const index = Array.from(selected.parentNode.children).indexOf(selected);
   placasDeVideo.splice(index, 1);
-  kreate()
+  kreateTable()
 }
 
-kreate();
+kreateTable();
