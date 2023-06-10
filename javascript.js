@@ -50,8 +50,7 @@ function kreateNDestroy() {
             "El elemento ha sido eliminado!",
             "success"
           ))
-          eliminarElemento();
-      }); :
+      ); :
       result.dismiss === Swal.DismissReason.cancel
           (swalWithBootstrapButtons.fire(
             "Eso estuvo cerca!",
