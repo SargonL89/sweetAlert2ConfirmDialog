@@ -24,7 +24,6 @@ function kreate() {
 
 function kreateNDestroy() {
   const eliminate = document.querySelector(".eliminate");
-  const select = document.querySelector(".selected");
   eliminate.addEventListener("click", () => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -43,53 +42,30 @@ function kreateNDestroy() {
         confirmButtonText: "Sí, eliminarlo!",
         cancelButtonText: "No, cancelar!",
         reverseButtons: true
-      }).then((result) => {
-      result.isConfirmed ?
+      })
+      .then((result) => {
+      result.isConfirmed ? 
           (swalWithBootstrapButtons.fire(
             "Listo!",
             "El elemento ha sido eliminado!",
             "success"
-          ))
-      ); :
-      result.dismiss === Swal.DismissReason.cancel
+          ),
+          eliminar()) :
+      result.dismiss === Swal.DismissReason.cancel 
           (swalWithBootstrapButtons.fire(
             "Eso estuvo cerca!",
             "Tu placa de video imaginaria está a salvo! :)",
             "error"
           ));
       });
+  });
 }
 
-
-
-//     const eliminarButton = document.createElement("button");
-//     eliminarButton.textContent = "Eliminar";
-//     eliminarButton.addEventListener("click", () => {
-//       mostrarConfirmacion(index);
-//     });
-
-//     tableBody.appendChild(eliminarButton);
-//   });
-// }
-
-// function mostrarConfirmacion(index) {
-//   Swal.fire({
-//     title: "Eliminar elemento",
-//     text: "¿Estás seguro de que deseas eliminar este elemento?",
-//     icon: "warning",
-//     showCancelButton: true,
-//     confirmButtonText: "Sí, eliminar",
-//     cancelButtonText: "Cancelar",
-//   }).then((result) => {
-//     if (result.isConfirmed) {
-//       eliminarElemento(index);
-//     }
-//   });
-// }
-
-// function eliminarElemento(index) {
-//   placasDeVideo.splice(index, 1);
-//   Kreate();
-// }
+function eliminar() {
+  const selected = document.querySelector(".selected");
+  const index = Array.from(selected.parentNode.children).indexOf(selected);
+  placasDeVideo.splice(index, 1);
+  kreate()
+}
 
 kreate();
