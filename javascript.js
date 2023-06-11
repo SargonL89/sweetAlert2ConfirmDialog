@@ -17,12 +17,44 @@ function kreateTable() {
     row.addEventListener("click", () => {
       selected.forEach(row => row.classList.remove("selected"));
       row.classList.add("selected");
-      sweetAlert();
+      sweetAlert2();
     });
   });
 }
 
-function sweetAlert() {
+function sweetAlert2() {
+  const selected = document.querySelector(".selected");
+
+  const comprar = document.querySelector(".comprar");
+  comprar.addEventListener("click", () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: true
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Confirmación de compra",
+        text: selected.textContent,
+        showCancelButton: true,
+        confirmButtonText: "Comprar",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true
+      })
+      .then((result) => {
+      result.isConfirmed ? 
+          (swalWithBootstrapButtons.fire(
+            "¡Gracias por tu compra!",
+            "Hemos recibido tu pedido y nos estamos preparando para enviarlo. Te mantendremos informado sobre el estado de entrega",
+            "success"  
+          )) :
+      result.dismiss === Swal.DismissReason.cancel
+      });
+  });    
+
   const eliminate = document.querySelector(".eliminate");
   eliminate.addEventListener("click", () => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -30,7 +62,7 @@ function sweetAlert() {
         confirmButton: "btn btn-success",
         cancelButton: "btn btn-danger",
       },
-      buttonsStyling: false
+      buttonsStyling: true
     });
 
     swalWithBootstrapButtons
@@ -51,12 +83,12 @@ function sweetAlert() {
             "success"
           ),
           eliminar()) :
-      result.dismiss === Swal.DismissReason.cancel 
-          (swalWithBootstrapButtons.fire(
-            "Eso estuvo cerca!",
-            "Tu placa de video imaginaria está a salvo! :)",
-            "error"
-          ));
+      result.dismiss === Swal.DismissReason.cancel
+        (swalWithBootstrapButtons.fire(
+          "Eso estuvo cerca!",
+          "Tu placa de video imaginaria está a salvo! :)",
+          "error"
+        ));
       });
   });
 }
